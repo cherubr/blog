@@ -1,6 +1,11 @@
 ---
 title: "java 虚拟机"
 date: 2019-12-22T13:05:19+08:00
+categories: ["JavaBase"]
+project_url: "https://github.com/gohugoio/hugo"
+#series: ["Go Web Dev"]
+slug: "hugo"
+tags: ["JavaBase", "Java", "jvm"]
 ---
 # java 虚拟机
 - 什么是JDK，JRE
