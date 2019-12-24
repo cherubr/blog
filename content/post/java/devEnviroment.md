@@ -1,6 +1,9 @@
 ---
 title: "DevEnviroment"
 date: 2019-12-24T20:47:52+08:00
+categories: ["Environment"]
+slug: "hugo"
+tags: ["jdk", "jdk，maven配置", "maven仓库配置"]
 #draft: true
 ---
 # 常见的java开发环境配置
