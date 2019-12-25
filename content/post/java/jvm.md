@@ -3,7 +3,6 @@ title: "java 虚拟机"
 date: 2019-12-22T13:05:19+08:00
 #series: ["Go Web Dev"]
 categories: ["JavaBase"]
-slug: "hugo"
 tags: ["JavaBase", "Java", "jvm"]
 ---
 # java 虚拟机
