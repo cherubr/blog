@@ -3,7 +3,7 @@ title: "DevEnviroment"
 date: 2019-12-24T20:47:52+08:00
 categories: ["Environment"]
 slug: "hugo"
-tags: ["jdk", "jdk，maven配置", "maven仓库配置"]
+tags: ["jdk，maven配置", "maven仓库配置"]
 #draft: true
 ---
 # 常见的java开发环境配置
@@ -27,7 +27,7 @@ tags: ["jdk", "jdk，maven配置", "maven仓库配置"]
 - 配置path:  
 编辑path变量: %MAVEN_HOME%\bin(window10)  
 ![maven_path](../assert/maven_path.png)
-- maven settings.xml 仓库配置（按需）添加到 <mirrors> </mirrors>节点之间
+- maven settings.xml 仓库配置（按需）添加到``` <mirrors> </mirrors>```节点之间
 ```xml
      <!-- 阿里云仓库-->
         <mirror>
