@@ -1,6 +1,3 @@
 [submodule "themes/maupassant"]
 	path = themes/maupassant
 	url = https://github.com/cherubr/maupassant-hugo.git
-[submodule "public"]
-	path = public
-	url = https://github.com/cherubr/cherubr.github.io.git
