@@ -3,7 +3,7 @@ title: "Server-Docker 相关配置"
 date: 2019-12-26T15:46:02+08:00  
 
 categories: ["Docker"]
-tags: ["redis，mysql,redis环境配置"]
+tags: ["nginx，mysql,redis环境配置"]
 ---
 ## Docker相关服务配置
 - docker安装
@@ -101,7 +101,7 @@ docker run --name nginx \
 进入容器：```docker exec -it nginx /bin/bash```
 执行命令：``` nginx -t ```找到对应conf文件
 ### (注意挂载过程出现403问题)  
-- 1.修改nginx.conf文件的 #user  nobody; ==》root后者nginx用户名
+- 1.修改nginx.conf文件的 #user  nobody; ==》root或者nginx用户名
 - 2.添加添加selinux规则，改变要挂载的目录的安全性文本
  ```linux 
  chcon -Rt svirt_sandbox_file_t /home/hct/sample/
