@@ -1,1 +1,4 @@
 
+[submodule "themes/maupassant"]
+	path = themes/maupassant
+	url = https://github.com/cherubr/maupassant-hugo.git
