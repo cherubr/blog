@@ -6,13 +6,13 @@ slug: "hugo"
 tags: ["海康web3.0", "视频接口", "JS for循环闭包问题"]  
 <!-- draft: true -->
 ---
-## 海康视频web3.0控件的集成 
+# 海康视频web3.0控件的集成 
 - 测试demo的使用
 - 集成开发
 - 注意事项 
 
 
-### 1.测试demo
+## 1.测试demo
 - 1.1下载对应的web开发包[hk-web3.0](https://github.com/Wu-Qin-Hao/HIK-web3.0)
 
 - 1.2安装对应的控件，直接本地打开demo.html文件对相应的数据源进行调试。（如图）  
@@ -22,7 +22,7 @@ tags: ["海康web3.0", "视频接口", "JS for循环闭包问题"]
 - 1.4然后点击预览，在正确的登录成功后会看到预览的登录视频。  
 ![hkvideo3](../assert/hkvideo3.png)
 
-### 2.集成开发
+## 2.集成开发
 
 #### 2.1引入对应的js文件
 ```html
@@ -81,7 +81,7 @@ function play(szIP,index){
         console.log("加载成功")
     }
 ```
-### 3.注意事项
+## 3.注意事项
 - 3.1登录视频接口模块代码
  ```js
   // login
