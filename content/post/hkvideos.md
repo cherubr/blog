@@ -13,18 +13,23 @@ tags: ["海康web3.0", "视频接口", "JS for循环闭包问题"]
 
 
 ### 1.测试demo
-- 下载对应的web开发包[hk-web3.0](https://github.com/Wu-Qin-Hao/HIK-web3.0)
-- 安装对应的控件，直接本地打开demo.html文件对相应的数据源进行调试。（如图）  
+- 1.1下载对应的web开发包[hk-web3.0](https://github.com/Wu-Qin-Hao/HIK-web3.0)
+
+- 1.2安装对应的控件，直接本地打开demo.html文件对相应的数据源进行调试。（如图）  
 ![hkvideo](../assert/hkvideo.png)
-- 点击登录会看到登录日志，然后点击预览，在正确的登录成功后会看到预览的登录视频。  
+- 1.3点击登录会看到登录日志  
+![hkvideo2](../assert/hkvideo2.png)
+- 1.4然后点击预览，在正确的登录成功后会看到预览的登录视频。  
+![hkvideo3](../assert/hkvideo3.png)
 
 ### 2.集成开发
-- 2.1引入对应的js文件
+
+#### 2.1引入对应的js文件
 ```html
 <script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="./js/webVideoCtrl.js"></script>
 ```
-- 2.2开发过程，接口的doc文档中包含了所有的流程，详细问题看接口文档
+#### 2.2开发过程，接口的doc文档中包含了所有的流程，详细问题看接口文档
 
 - 2.2.1初始化
 ```js
@@ -57,10 +62,11 @@ tags: ["海康web3.0", "视频接口", "JS for循环闭包问题"]
         }
 
     })
-    // 切换窗口的分割形状 这里设置rowNum 只是一个初始值，随便指定
+    // 切换窗口的分割形状 这里设置rowNum 只是一个初始值，随便指定(放到你需要更改窗口位置)
     WebVideoCtrl.I_ChangeWndNum(iType);
 ```
 - 2.2.2 登录代码见下面注意事项。
+
 - 2.2.3 播放过程
 ```js
 function play(szIP,index){
