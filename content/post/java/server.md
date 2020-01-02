@@ -110,8 +110,8 @@ docker run --name nginx \
 - 3.html文件夹没有文件（添加一个index.html）
 
 ## rabbitmq
-docker pull docker.io/rabbitmq:3.8-management
-docker
+docker pull docker.io/rabbitmq:3.8-management  
+docker run --name rabbitmq -d -p 15672:15672 -p 5672:5672 rabbitmq:3.8-management
 
 
 
