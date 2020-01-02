@@ -5,4 +5,6 @@ draft: false
 ---
 - idea 注册码:  
 [ifdll](http://www.ifdll.com/)
+- Sumatra PDF  
+[pdf工具](https://www.sumatrapdfreader.org/download-free-pdf-viewer.html)
 

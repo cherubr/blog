@@ -10,6 +10,7 @@ tags: ["nginx，mysql,redis环境配置"]
 - mysql安装
 - redis安装
 - nginx安装
+- rabbitmq安装
 ## docker安装
 - 移除现有的docker文件  
 ```linux
@@ -107,6 +108,10 @@ docker run --name nginx \
  chcon -Rt svirt_sandbox_file_t /home/hct/sample/
 ```
 - 3.html文件夹没有文件（添加一个index.html）
+
+## rabbitmq
+docker pull docker.io/rabbitmq:3.8-management
+docker
 
 
 
