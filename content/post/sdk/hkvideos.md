@@ -16,11 +16,11 @@ tags: ["海康web3.0", "视频接口", "JS for循环闭包问题"]
 - 1.1下载对应的web开发包[hk-web3.0](https://github.com/Wu-Qin-Hao/HIK-web3.0)
 
 - 1.2安装对应的控件，直接本地打开demo.html文件对相应的数据源进行调试。（如图）  
-![hkvideo](../assert/hkvideo.png)
+![hkvideo](assert/hkvideo/hkvideo.png)
 - 1.3点击登录会看到登录日志  
-![hkvideo2](../assert/hkvideo2.png)
+![hkvideo2](assert/hkvideo/hkvideo2.png)
 - 1.4然后点击预览，在正确的登录成功后会看到预览的登录视频。  
-![hkvideo3](../assert/hkvideo3.png)
+![hkvideo3](assert/hkvideo/hkvideo3.png)
 
 ## 2.集成开发
 

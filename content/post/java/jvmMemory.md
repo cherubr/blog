@@ -48,4 +48,4 @@ Java 虚拟机栈，这个栈与线程同时创建，用来存储栈帧，即存
 顾名思义用来存储本地方法，native方法（java调用c的方法）。
 
 ## jvm内存图
-![jvmMemory](../assert/jvmMemory.png)
+![jvmMemory](../sdk/assert/jvmMemory.png)

@@ -14,7 +14,7 @@ tags: ["JavaBase", "Java", "jvm"]
 ## 1.JDK与JRE区别与联系
 &emsp;&emsp;简单来说JDK包含JRE和一系列JAVA开发和诊断的工具。JRE（Java Runtime Environment）仅包含运行 Java 程序的必需组件，
 包括 Java 虚拟机以及 Java 核心类库(如图)  
-![1348494277_5463](../assert/1348494277_5463.jpg)
+![1348494277_5463](../sdk/assert/1348494277_5463.jpg)
 ## 2.JDK与J2SE
 了解这两个之前先了解一下J2SE,J2EE,J2ME。
 - J2SE(Java 2 Standard Edition):java标准技术体系，它包含java的核心类库和数据库接口，网络编程等。
