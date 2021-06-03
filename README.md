@@ -46,7 +46,11 @@
  
 - 提交更改到代码库，可观察到'.gitmodules'内容发生变更  
  
- git commit -am "Remove a submodule."
+ git commit -am "Remove a submodule."  
+
+## hugo server 使用
+ - 在content目录下执行 hugo server
+
 
 
 
