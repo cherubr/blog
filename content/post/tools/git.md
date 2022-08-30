@@ -57,6 +57,15 @@ git config -f .gitmodules submodule.{submodule.name}.branch stable
  执行: git checkout ${branch.name}
  返回主目录重新进行meger和rebase操作。
 ```
+### 1.5 子模块推送检查
+- 推送之前先检查子类是否推送
+```bash
+git push --recurse-submodules=check
+```
+- 默认推送之前先推送子模块，子模块推送失败主目录也将推送失败
+```bash
+git push --recurse-submodules=on-demand
+```
 ## 2. git命令使用
 ### 2.1 设着邮箱和用户名
 - global代表全局，不加global代表当前项目
