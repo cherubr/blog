@@ -154,6 +154,11 @@ $ git merge client
 ```bash
 $ git rebase master server
 ```
+- 该命令会切换到server分支，之后需要切换到master分支进行合并
+```bash
+$ git checkout master
+$ git merge server
+```
 ### 2.6 删除分支命令
 ```bash
 $ git branch -d client
