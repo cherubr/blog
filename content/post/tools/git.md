@@ -53,7 +53,9 @@ git config -f .gitmodules submodule.{submodule.name}.branch stable
  git submodule update --remote --merge|--rebase ${submodule.name} （${submodule.name} 存在多个子模块带上对应名称,否则可以忽略）
  3.注意：这里是将远程的分支和本地新建的分支进行合并，之后的拉取项目必须带上 --meger 或者 --rebase,否则还会出现分离现象。
  当我们在子模块工作区间进行提交之后，忘记了（--merge , --rebase）
- 忘记也没有关系，这里切换到子模块对应目录，你刚才生成的分支依然存在 ，切换到对应分支，返回主目录重新进行meger和rebase操作。
+ 忘记也没有关系，这里切换到子模块对应目录，你刚才生成的分支依然存在,
+ 执行: git checkout ${branch.name}
+ 返回主目录重新进行meger和rebase操作。
 ```
 ## 2. merge和rebase
 
