@@ -154,6 +154,12 @@ $ git merge client
 ```bash
 $ git rebase master server
 ```
+### 2.6 删除分支命令
+```bash
+$ git branch -d client
+$ git branch -d server
+```
+
 
 
 
