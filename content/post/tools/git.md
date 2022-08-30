@@ -47,13 +47,13 @@ git config -f .gitmodules submodule.{submodule.name}.branch stable
 ### 1.4 子模块问题
 - 当我们运行git submodule update命令从子模块存储库中获取更改时，Git 将获取更改并更新子目录中的文件，但会使子存储库处于所谓的“分离 HEAD”状态
 ```
- 切换到子模块目录执行 
+ 1.切换到子模块目录执行 
  git checkout ${branch.name}
- 切换回到刚才主目录执行
- git submodule update --remote --merge|--rebase （${submodule.name} 多个模块，否则可以忽略）
- 这里是将远程的分支和本地新建的分支进行合并，之后的拉取项目必须带上 --meger 或者 --rebase,否则还会出现分离现象。
- 当我们在子模块工作区间进行提交之后，忘记（--merge , --rebase）
- 忘记也没有关系，这里切换到子模块对应分支目录，你刚才生成的分支依然存在 ，切换到对应分支，重新进行meger和rebase操作。
+ 2.切换回到刚才主目录执行
+ git submodule update --remote --merge|--rebase ${submodule.name} （${submodule.name} 存在多个子模块带上对应名称,否则可以忽略）
+ 3.注意：这里是将远程的分支和本地新建的分支进行合并，之后的拉取项目必须带上 --meger 或者 --rebase,否则还会出现分离现象。
+ 当我们在子模块工作区间进行提交之后，忘记了（--merge , --rebase）
+ 忘记也没有关系，这里切换到子模块对应目录，你刚才生成的分支依然存在 ，切换到对应分支，返回主目录重新进行meger和rebase操作。
 ```
 ## 2. merge和rebase
 
