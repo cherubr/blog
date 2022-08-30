@@ -108,10 +108,10 @@ helper = store –file .git-credentials
 ### 2.5 git merge|git rebase 命令区别
 - 两者都是用来合并分支命令。下面以图列来分析rebase和merge区别  
 - 这是一个开发任务分叉到两个不同分支
-![befor_merge](assert/befor_merge.png)
+![befor_merge](../assert/befor_merge.png)
 - 整合分支最容易的方法是 merge 命令。 它会把两个分支的最新快照（C3 和 C4）以及二者最近的共同祖先（C2）进行三方合并，
 合并的结果是生成一个新的快照（并提交）  
-![after_merge](assert/after_merge-merge.png)
+![after_merge](../assert/after_merge-merge.png)
 #### 2.5.1 下面介绍rebase使用
 - 你可以提取在 C4 中引入的补丁和修改，然后在 C3 的基础上应用一次。
   即使用 rebase 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。
@@ -124,19 +124,19 @@ Applying: added staged command
 - 它的原理是首先找到这两个分支（即当前分支 experiment、rebase操作的目标基底分支 master） 的最近共同祖先 C2，
 然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 C3, 
 最后以此将之前另存为临时文件的修改依序应用。 
-![merge-rebase](assert/merge-rebase.png)
+![merge-rebase](../assert/merge-rebase.png)
 - 将 C4 中的修改变基到 C3 上 ,现在回到 master 分支，进行一次快进合并
 ```bash
 $ git checkout master
 $ git merge experiment
 ```
-![merge-rebase-after](assert/merge-rebase-after.png)
+![merge-rebase-after](../assert/merge-rebase-after.png)
 
 - rebase想对merge而言提交的日志记录比较整洁。
 
 #### 2.5.2 有趣的rebase操作
 - 想象一下现在你有这样的一个工作分支情形
-![interesting-rebase](assert/interesting-rebase.png)
+![interesting-rebase](../assert/interesting-rebase.png)
 - 现在你不想合并server分支上的工作内容，但是想把client（即 C8 和 C9）分支合并到master分支。
 ```bash
 git rebase --onto master server client
