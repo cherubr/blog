@@ -7,7 +7,7 @@ tags: ["Git Submodule", "Git常见命令","Git 子模块"]
 ---
 # Git
 - 什么是git子模块（Submodule）子模块
-- merge | rebase
+- git命令
 
 ## 1. 什么是git子模块
 - 子模块允许您将 Git 存储库保留为另一个 Git 存储库的子目录。 这使您可以将另一个存储库克隆到您的项目中并保持您的提交分开。 
@@ -57,7 +57,110 @@ git config -f .gitmodules submodule.{submodule.name}.branch stable
  执行: git checkout ${branch.name}
  返回主目录重新进行meger和rebase操作。
 ```
-## 2. merge和rebase
+## 2. git命令使用
+### 2.1 设着邮箱和用户名
+- global代表全局，不加global代表当前项目
+```bash
+git config --global user.name "Your name"
+git config --global user.email "email@example.com"
+```
+### 2.2 git存储区域提交和回退
+工作区：对应的目录  
+版本库：.git  
+版本库分为：暂存区和分支，添加到暂存区的数据要提交到分支中才能最终提交到git  
+git相关命令：工作区内->暂存区->分支  
+git add filename：添加文件到暂存区  
+git commit -m "info" 提交更改分支  
+git status： 查看仓库的当前状态  
+git diff:  比较的是工作区和暂存区的差别  
+git diff --cached 比较的是暂存区和版本库的差别  
+git diff HEAD 可以查看工作区和版本库的差别  
+git log：查看历史记录   
+git log --pretty=oneline 以id查看历史记录  
+git reflog 记录每次命令  
+git checkout --file 文件没有经过添加到暂存区的恢复  
+git reset HEAD file 可以将暂存区的文件修改撤销  再通过checkout 回退到版本库     
+git reset --hard HEAD^或者直接通过id（--hard 3628164）  版本回退 git reset  
+git fetch ${branch.name} && git merge ${branch.name}/${local.branch.name} 合并远程分支数据到本地分支
+
+### 2.3 git标签
+git tag ${name} 打标签  
+git tag ${tag.name} ${commit.id} 给某个版本打标签  
+git tag 查看标签  
+git show ${tag.name}查看标签信息  
+git tag -a ${tag.name} -m ${tag.info}  
+git tag -d ${tag.name} 删除标签  
+git push origin ${tag.name} 推送标签到远程仓库  
+删除远程标签先删除本地
+git tag -d ${tag.name}  
+git push origin :refs/tags/${tag.name}  
+### 2.4 登录问题
+避免每次push需要登录问题
+打开git bash控制终端后：  
+```bash
+cd ~  
+vi .gitconfig  
+```
+在文件中加上如下：  
+[credential]
+helper = store –file .git-credentials 
+
+### 2.5 git merge|git rebase 命令区别
+- 两者都是用来合并分支命令。下面以图列来分析rebase和merge区别  
+- 这是一个开发任务分叉到两个不同分支
+![befor_merge](assert/befor_merge.png)
+- 整合分支最容易的方法是 merge 命令。 它会把两个分支的最新快照（C3 和 C4）以及二者最近的共同祖先（C2）进行三方合并，
+合并的结果是生成一个新的快照（并提交）  
+![after_merge](assert/after_merge-merge.png)
+#### 2.5.1 下面介绍rebase使用
+- 你可以提取在 C4 中引入的补丁和修改，然后在 C3 的基础上应用一次。
+  即使用 rebase 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。
+```bash
+$ git checkout experiment
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: added staged command
+```
+- 它的原理是首先找到这两个分支（即当前分支 experiment、rebase操作的目标基底分支 master） 的最近共同祖先 C2，
+然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 C3, 
+最后以此将之前另存为临时文件的修改依序应用。 
+![merge-rebase](assert/merge-rebase.png)
+- 将 C4 中的修改变基到 C3 上 ,现在回到 master 分支，进行一次快进合并
+```bash
+$ git checkout master
+$ git merge experiment
+```
+![merge-rebase-after](assert/merge-rebase-after.png)
+
+- rebase想对merge而言提交的日志记录比较整洁。
+
+#### 2.5.2 有趣的rebase操作
+- 想象一下现在你有这样的一个工作分支情形
+![interesting-rebase](assert/interesting-rebase.png)
+- 现在你不想合并server分支上的工作内容，但是想把client（即 C8 和 C9）分支合并到master分支。
+```bash
+git rebase --onto master server client
+```
+- 取出 client 分支，找出它从 server 分支分歧之后的补丁， 然后把这些补丁在 master 分支上重放一遍
+让 client 看起来像直接基于 master 修改一样”。这理解起来有一点复杂，不过效果非常酷。
+- 再合并分支
+```bash
+$ git checkout master
+$ git merge client
+```
+#### 2.5.4 直接合并rebase
+- 使用 git rebase <basebranch> <topicbranch> 命令可以直接将主题分支 （即本例中的 server）变基到目标分支（即 master）上。 
+这样做能省去你先切换到 server 分支，再对其执行变基命令的多个步骤。
+```bash
+$ git rebase master server
+```
+
+
+
+
+
+
+
 
 
 
