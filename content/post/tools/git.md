@@ -58,11 +58,11 @@ git config -f .gitmodules submodule.{submodule.name}.branch stable
  返回主目录重新进行meger和rebase操作。
 ```
 ### 1.5 子模块推送检查
-- 推送之前先检查子类是否推送
+- 推送之前先检查子类是否推送(前提是子模块已经commit)
 ```bash
 git push --recurse-submodules=check
 ```
-- 默认推送之前先推送子模块，子模块推送失败主目录也将推送失败
+- 默认推送之前先推送子模块，子模块推送失败主目录也将推送失败 (前提是子模块已经commit)
 ```bash
 git push --recurse-submodules=on-demand
 ```
