@@ -63,6 +63,12 @@ git config -f .gitmodules submodule.{submodule.name}.branch stable
 ```bash
 git config --global user.name "Your name"
 git config --global user.email "email@example.com"
+- 修改
+git config --global --replace-all user.name "Your name"
+git config --global --replace-all user.email "email@example.com"
+- 删除
+git config --global --unset user.name "Your name"
+git config --global --unset user.email "email@example.com"
 ```
 ### 2.2 git存储区域提交和回退
 工作区：对应的目录  
