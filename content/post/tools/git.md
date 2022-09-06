@@ -80,35 +80,35 @@ git config --global --unset user.name "Your name"
 git config --global --unset user.email "email@example.com"
 ```
 ### 2.2 git存储区域提交和回退
-工作区：对应的目录  
-版本库：.git  
-版本库分为：暂存区和分支，添加到暂存区的数据要提交到分支中才能最终提交到git  
-git相关命令：工作区内->暂存区->分支  
-git add filename：添加文件到暂存区  
-git commit -m "info" 提交更改分支  
-git status： 查看仓库的当前状态  
-git diff:  比较的是工作区和暂存区的差别  
-git diff --cached 比较的是暂存区和版本库的差别  
-git diff HEAD 可以查看工作区和版本库的差别  
-git log：查看历史记录   
-git log --pretty=oneline 以id查看历史记录  
-git reflog 记录每次命令  
-git checkout --file 文件没有经过添加到暂存区的恢复  
-git reset HEAD file 可以将暂存区的文件修改撤销  再通过checkout 回退到版本库     
-git reset --hard HEAD^或者直接通过id（--hard 3628164）  版本回退 git reset  
-git fetch ${branch.name} && git merge ${branch.name}/${local.branch.name} 合并远程分支数据到本地分支
+>工作区：对应的目录  
+>版本库：.git  
+>版本库分为：暂存区和分支，添加到暂存区的数据要提交到分支中才能最终提交到git  
+>git相关命令：工作区内->暂存区->分支  
+>git add filename：添加文件到暂存区  
+>git commit -m "info" 提交更改分支  
+>git status： 查看仓库的当前状态  
+>git diff:  比较的是工作区和暂存区的差别  
+>git diff --cached 比较的是暂存区和版本库的差别  
+>git diff HEAD 可以查看工作区和版本库的差别  
+>git log：查看历史记录   
+>git log --pretty=oneline 以id查看历史记录  
+>git reflog 记录每次命令  
+>git checkout --file 文件没有经过添加到暂存区的恢复  
+>git reset HEAD file 可以将暂存区的文件修改撤销  再通过checkout 回退到版本库     
+>git reset --hard HEAD^或者直接通过id（--hard 3628164）  版本回退 git reset  
+>git fetch ${branch.name} && git merge ${branch.name}/${local.branch.name} 合并远程分支数据到本地分支
 
 ### 2.3 git标签
-git tag ${name} 打标签  
-git tag ${tag.name} ${commit.id} 给某个版本打标签  
-git tag 查看标签  
-git show ${tag.name}查看标签信息  
-git tag -a ${tag.name} -m ${tag.info}  
-git tag -d ${tag.name} 删除标签  
-git push origin ${tag.name} 推送标签到远程仓库  
+>git tag ${name} 打标签  
+>git tag ${tag.name} ${commit.id} 给某个版本打标签  
+>git tag 查看标签  
+>git show ${tag.name}查看标签信息  
+>git tag -a ${tag.name} -m ${tag.info}  
+>git tag -d ${tag.name} 删除标签  
+>git push origin ${tag.name} 推送标签到远程仓库  
 删除远程标签先删除本地
-git tag -d ${tag.name}  
-git push origin :refs/tags/${tag.name}  
+>git tag -d ${tag.name}  
+>git push origin :refs/tags/${tag.name}  
 ### 2.4 登录问题
 避免每次push需要登录问题
 打开git bash控制终端后：  
