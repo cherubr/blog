@@ -9,10 +9,12 @@ tags: ["Java SPI"]
 - SPI组件构成
 - API和SPI区别
 - SPI实战演练
+- 总结
 
 
 ## 什么是java Spi
 **SPI**: 用于发现和加载与给定**接口**匹配的**实现**。服务提供者接口:（供服务的提供者或者框架扩展者去实现服务的一套接口标准）
+如日志框架提供了数据库驱动的接口定义，各个厂商对改接口进行对应实现。
 
 ## SPI组件构成
 ### ServiceLoader
@@ -24,7 +26,7 @@ SPI 的核心是 ServiceLoader 类。加载服务实现的类。具有延迟发�
 ### Service Provider Interface（服务提供者接口）
 为了实现特定应用功能的接入，制定的一套标准化的接口，被用于服务提供者去实现该接口，完成对功能的实现。
 一般为具体的sdk服务厂家提供的接口标准。（jdk 为 oracle 驱动提供的接口）
-### Service Provider （服务提供者（实现这个服务的具体模块或者类））
+### Service Provider （服务提供者（实现这个服务的具体模块或者类的厂商或框架实现者））
 实现提供者接口的具体实现。通过配置 META-INF/services下的文件来确定服务器提供者接口和服务提供者实现。
 ## API和SPI区别
 - 当实现方提供了接口和实现，我们可以通过调用实现方的接口从而拥有实现方给我们提供的能力，这就是 API ，这种接口和实现都是放在实现方的。
@@ -73,7 +75,7 @@ public interface Logger {
     void write(String message);
 }
 ```
-- 然后我们创建服务提供者用于制定创建那种日志输出
+- 然后我们创建服务提供者用于制定创建哪种（如 logback）日志输出 **（服务提供者接口SPI）**
 ```java
 package com.ahut.spi;
 
@@ -81,18 +83,19 @@ package com.ahut.spi;
  * @author Sumin.G
  * @title: Logger
  * @projectName java-base
- * @description: SPI 接口提供者 用于服务提供者去实现该接口，完成对功能的实现
+ * @description: SPI 接口提供者接口 用于服务提供者去实现该接口，完成对功能的实现
  * @date 2022/9/69:40
  */
 public interface LoggerProvider {
     /**
-     * 创建日志管理类
+     * 创建日志类别管理类
      * @return
      */
     Logger create();
 }
 ```
-- 最后是我们的serviceloader类加载对应接口
+- 最后是我们的serviceloader类加载对应接口（通过加载服务提供者实现的接口类下META—INFO/services/**）文件下的内容
+去实现类的加载。
 ```java
 package com.ahut.spi.impl;
 
@@ -132,13 +135,13 @@ public class LoggerManager {
 
 }
 ```
-到这里用户的服务提供者完成。
+- 到这里用户的服务提供者完成。
 ![SPI_serverProvider.png](../assert/SPI_serverProvider.png)
-- 
+
 - 下面我们创建服务提供者实现
 创建一个名为service-provider的 Maven 项目，并将 service-provider-interface 依赖项添加到pom.xml
 创建**SPI**实现类
-用于构建对应Logger 日志具体实现类
+用于构建对应Logger 日志具体实现类（实现服务提供者提供的服务接口）
 ```java
 package com.ahut.spi.server;
 
@@ -213,3 +216,6 @@ public class App
 ```bash
 输出结果: logback输出日志 123
 ```
+## 总结
+总的来说，SPI本质上来说其实就是服务的调用者提供了对某一模块功能的接口约定，而服务实现者需要根据这一接口约定进行具体模块功能的开发。
+服务调用者通过SPI中的ServiceLoader提供的方法加载通过对应配置文件配置的内容来实现类的加载，初始化。
