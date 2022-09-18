@@ -6,11 +6,23 @@ categories: ["Docker"]
 tags: ["nginx，mysql,redis环境配置"]
 ---
 ## Docker相关服务配置
+- 设置linux相关信息
 - docker安装
 - mysql安装
 - redis安装
 - nginx安装
 - rabbitmq安装
+## linux相关配置
+- 临时删除Swap分区所有内容
+```bash
+swapoff -a 
+```
+- 永久删除Swap挂载
+```bash
+vim /etc/fstab
+
+```
+
 ## docker安装
 - 移除现有的docker文件  
 ```linux
